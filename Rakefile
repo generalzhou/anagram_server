@@ -85,6 +85,8 @@ namespace :generate do
 
 end
 
+
+
 namespace :db do
   desc "Create the database at #{DB_NAME}"
   task :create do
@@ -115,6 +117,11 @@ namespace :db do
   desc "Returns the current schema version number"
   task :version do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
+  end
+
+  desc "database console"
+  task :console do
+    exec "psql -d #{DB_NAME}"
   end
 end
 
