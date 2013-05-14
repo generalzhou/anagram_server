@@ -109,10 +109,10 @@ namespace :db do
     end
   end
 
-  desc "Populate the database with dummy data by running db/seeds.rb"
-  task :seed do
-    require APP_ROOT.join('db', 'seeds.rb')
-  end
+  # desc "Populate the database with dummy data by running db/seeds.rb"
+  # task :seed do
+  #   require APP_ROOT.join('db', 'seeds.rb')
+  # end
 
   desc "Returns the current schema version number"
   task :version do
@@ -123,6 +123,12 @@ namespace :db do
   task :console do
     exec "psql -d #{DB_NAME}"
   end
+
+  desc "seeds database with words from dictionary.txt"
+  task :seed do
+    require APP_ROOT.join('db', 'seeds.rb')
+  end
+  
 end
 
 desc 'Start IRB with application environment loaded'

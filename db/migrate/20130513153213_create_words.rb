@@ -4,6 +4,6 @@ class CreateWords < ActiveRecord::Migration
       t.string :word
       t.string :base_word
     end
-
+    add_index(:words, :base_word)
   end
 end
